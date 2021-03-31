@@ -3,6 +3,8 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.json());
+
 // console.log(app);
 /*
 GET: buscar
@@ -19,9 +21,13 @@ app.get('/projects', (request, response) => {
         'Projeto 1',
         'Projeto 2'
     ])
-})
+});
 
 app.post('/projects', (request, response) => {
+    const body = request.body;
+
+    console.log(body);
+    
     return response.json([
         'Projeto 1',
         'Projeto 2',
@@ -30,13 +36,13 @@ app.post('/projects', (request, response) => {
         'Projeto 5',
         'Projeto 6',
     ])
-})
+});
 
 app.put('/projects/:id', (request, response) => {
     const params = request.params;
 
     console.log(params)
-    
+
     return response.json([
         'Projeto 50',
         'Projeto 2',
